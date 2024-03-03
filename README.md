@@ -27,19 +27,18 @@ const fontFaceGen = require("gulp-fontfacegen-mod");
 
 gulp.task("html-bem-validator", () => {
   gulp.src("./src/font/*.{eot,ttf,otf,otc,ttc,woff,woff2,svg}")
-	// .pipe(fonter({	formats: ['woff', 'ttf'],}))
-	// .pipe(ttf2woff2())
-  .pipe(
-			fontFaceGen()
-			//or with options
-			fontFaceGen({
-				filepath: "./src/css/partial", //default
-        filename:  "fonts.css", //default
-       	destpath: "../fonts", //default
-				rewrite: "add"  //default
-			})
-			)
-    .pipe(gulp.dest('build/'));
+  // .pipe(fonter({	formats: ['woff', 'ttf'],}))
+  // .pipe(ttf2woff2())
+   .pipe(
+	fontFaceGen()
+	//or with options
+	fontFaceGen({
+	  filepath: "./src/css/partial", //default
+          filename:  "fonts.css", //default
+	  rewrite: "add"  //default
+	})
+    )
+  .pipe(gulp.dest('build/'));
 });
 ```
 
