@@ -2,7 +2,8 @@
 
 **gulp-fontfacegen-mod** is a modified [gulp-fontfacegen](https://www.npmjs.com/package/gulp-fontfacegen), [gulp-fontfacegen-extended](https://www.npmjs.com/package/gulp-fontfacegen-extended) plugins.
 It generates CSS file with @font-face rules for modern browsers (**woff, woff2** formats) based on keywords in font filename.
-\*notice: ! it does not convert fonts to different formats, but only generates a CSS file with the font name @font-face and its parameters: font-family, font-style, font-weight;
+>[!NOTE]
+>It does not convert fonts to different formats, but only generates a CSS file with the font name @font-face and its parameters: font-family, font-style, font-weight.
 
 ## What is the difference?
 - You can specify fonts destination folder.
@@ -14,7 +15,7 @@ It generates CSS file with @font-face rules for modern browsers (**woff, woff2**
 ## Install
 
 ```
-$ npm install --save-dev gulp-fontfacegen-extended
+$ npm install --save-dev gulp-fontfacegen-mod
 ```
 
 ## Usage
@@ -26,19 +27,20 @@ const gulp = require("gulp");
 const fontFaceGen = require("gulp-fontfacegen-mod");
 
 gulp.task("html-bem-validator", () => {
-  gulp.src("./src/font/*.{eot,ttf,otf,otc,ttc,woff,woff2,svg}")
-  // .pipe(fonter({	formats: ['woff', 'ttf'],}))
-  // .pipe(ttf2woff2())
-   .pipe(
-	fontFaceGen()
-	//or with options
-	fontFaceGen({
-	  filepath: "./src/css/partial", //default
-          filename:  "fonts.css", //default
-	  rewrite: "add"  //default
-	})
-    )
-  .pipe(gulp.dest('build/'));
+ gulp.src("./src/font/*.{eot,ttf,otf,otc,ttc,woff,woff2,svg}")
+ // .pipe(fonter({formats: ['woff', 'ttf'],}))
+ // .pipe(ttf2woff2())
+ .pipe(
+  fontFaceGen()
+  //or with options
+  fontFaceGen({
+   filepath: "./src/css/partial", //default
+   filename:  "fonts.css", //default
+   destpath: "../fonts", //default
+   rewrite: "add"  //default
+  })
+ )
+ .pipe(gulp.dest('build/'));
 });
 ```
 
@@ -68,7 +70,7 @@ Name of file with @font-face CSS rules.
 Type: `string`<br>
 Default: `"../fonts"`
 
-Destination folder where fonts are located.
+Destination folder where fonts are located `url("../fonts)`.
 
 ### rewrite
 
