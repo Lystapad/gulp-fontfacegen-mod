@@ -1,6 +1,6 @@
 ﻿# gulp-fontfacegen-mod
 
-**gulp-fontfacegen-mod** is a modified [gulp-fontfacegen](https://www.npmjs.com/package/gulp-fontfacegen), [gulp-fontfacegen-extended](https://www.npmjs.com/package/gulp-fontfacegen-extended) plugins.
+**gulp-fontfacegen-mod** is a modified [gulp-fontfacegen](https://www.npmjs.com/package/gulp-fontfacegen), [gulp-fontfacegen-extended](https://www.npmjs.com/package/gulp-fontfacegen-extended) plugins.<br>
 It generates CSS file with @font-face rules for modern browsers (**woff, woff2** formats) based on keywords in font filename.
 >[!NOTE]
 >It does not convert fonts to different formats, but only generates a CSS file with the font name @font-face and its parameters: font-family, font-style, font-weight.
